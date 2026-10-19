@@ -1,0 +1,41 @@
+body.auth{--ink:#e9eef2;--card:rgba(18,28,36,.88);--paper:#0f1a22;--line:#32414d;--accent:#4fc2ab;--accent-ink:#0b1a16;--warn:#ff8a80;--ok:#7be0a4;
+ min-height:100vh;display:grid;place-items:center;padding:24px;overflow-x:hidden;color:var(--ink);
+ background:radial-gradient(circle at 15% 25%,#15695a 0,#0c1b25 55%,#080f15 100%)}
+.stage{position:relative;z-index:2;width:min(420px,100%);perspective:1100px}
+.stage .brand{display:block;text-align:center;margin-bottom:18px;color:#fff;font-size:1.5rem}
+.tilt{transform-style:preserve-3d;transition:transform .15s ease-out;will-change:transform}
+.tilt .card{transform-style:preserve-3d;max-width:none;box-shadow:0 30px 60px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.06);backdrop-filter:blur(6px)}
+.tilt h2{transform:translateZ(40px);margin-top:0}
+.tilt label{transform:translateZ(22px)}
+.tilt .btn{transform:translateZ(34px);box-shadow:0 10px 20px rgba(0,0,0,.35)}
+.links{text-align:center}.links a{margin:0 10px;color:var(--accent)}
+.scene{position:fixed;inset:0;perspective:900px;pointer-events:none;z-index:1}
+/* 3D college name: 12 stacked copies give the text depth */
+.logo3d{position:absolute;left:5%;top:50%;width:420px;height:240px;margin-top:-120px;transform-style:preserve-3d}
+.spin{position:relative;width:100%;height:100%;transform-style:preserve-3d;animation:swing 9s ease-in-out infinite}
+.layer{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#1b8a77}
+.layer b{font-size:6.2rem;line-height:1;letter-spacing:.08em;font-weight:800}
+.layer span{font-size:1.45rem;font-weight:600;margin-top:6px}
+.layer em{font-style:normal;font-size:1.1rem;margin-top:4px;letter-spacing:.06em}
+.layer.front{color:#eafffa;text-shadow:0 0 22px rgba(79,194,171,.55)}
+@keyframes swing{0%,100%{transform:rotateY(-28deg) rotateX(6deg)}50%{transform:rotateY(28deg) rotateX(-4deg)}}
+.page{position:absolute;width:90px;height:120px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.08);animation:float 9s ease-in-out infinite}
+.p1{right:12%;top:18%}.p2{right:20%;top:62%;animation-delay:-3s;width:70px;height:95px}.p3{right:7%;top:44%;animation-delay:-6s;width:60px;height:80px}
+@keyframes float{0%,100%{transform:translateY(0) rotateY(-25deg) rotateX(10deg)}50%{transform:translateY(-26px) rotateY(25deg) rotateX(-10deg)}}
+@media (max-width:1100px){.logo3d{left:50%;top:6%;margin:0 0 0 -210px;opacity:.4;transform:scale(.6);transform-origin:top center}.page{display:none}}
+@media (prefers-reduced-motion:reduce){.spin,.page{animation:none}.spin{transform:rotateY(-15deg)}.tilt{transition:none}}
+/* Mobile and Tablet screens-kaana adjustments */
+@media screen and (max-width: 1099px) {
+    /* 3D text container size mobile screen-ku adapt aaga */
+    .text-3d-container {
+        font-size: 24px !important; /* Mobile font size */
+        opacity: 1 !important;      /* Text clear-ah theriya */
+        transform: scale(0.7);      /* Screen outer boundary flex aagadha padikku */
+    }
+
+    /* College name subtitle spacing */
+    .text-3d-sub {
+        font-size: 12px !important;
+        letter-spacing: 1px !important;
+    }
+}
